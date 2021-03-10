@@ -1,15 +1,17 @@
 \documentclass{article}
 
 % imports
-\usepackage{xcolor}                   % colorize text
-\usepackage{graphicx}                 % images
-\usepackage{hyperref}                 % hyperlinks
-\usepackage[nottoc,numbib]{tocbibind} % include bibliography in toc
-\usepackage{wrapfig}                  % wrapped figures
-\usepackage{glossaries}               % optional glossary
-\usepackage{lipsum}                   % easy lorem ipsum
-\usepackage[figurename=Bild]{caption} % rename Figures to Bilder
+\usepackage{xcolor}     % colorize text
+\usepackage{graphicx}   % images
+\usepackage{hyperref}   % hyperlinks
+\usepackage{wrapfig}    % wrapped figures
+\usepackage{glossaries} % optional glossary
+\usepackage{lipsum}     % easy lorem ipsum
+\usepackage{float}      % better image positioning
+
 % overrides & setup
+\usepackage[nottoc,numbib]{tocbibind}      % include bibliography in toc
+\usepackage[figurename=Abbildung]{caption} % rename Figure to Abbildung
 \renewcommand{\refname}{Quellen}
 \renewcommand{\contentsname}{Inhaltsverzeichnis}
 \graphicspath{{./images/}}
@@ -22,37 +24,7 @@
 }
 
 \begin{document}
-    \begin{titlepage}
-        \begin{center}
-            \Huge
-            \textbf{Solarzellen}
-
-            \vspace{0.5cm}
-
-            \LARGE
-            Funktion und Stand der Technik bei Stand-Alone-Anlagen
-
-            \vspace{1.5cm}
-
-            \href{mailto:erik.buennig@fh-erfurt.de}{
-                \color{black}{
-                    \textbf{Erik Bünnig}
-                }
-            }\\
-            18.2.2021
-
-            \vfill
-
-            \Large
-            Projektarbeit zur alternativen Prüfungsleistung im Kurs Elektrotechnik
-
-            \vspace{1.5cm}
-
-            \href{https://www.fh-erfurt.de/fhe/}{
-                \includegraphics[scale=0.5]{fhe_logo}
-            }
-        \end{center}
-    \end{titlepage}
+    \input{Deckblatt.tex}
 
     \tableofcontents
     \thispagestyle{empty}
@@ -70,32 +42,15 @@
 
     \section{Einleitung}
     \input{sections/Einleitung.tex}
-    % \lipsum[2]
-    % \begin{wrapfigure}{l}{0.25\textwidth}
-    %     \centering
-    %     \includegraphics[scale=0.75]{photodiode_symbol.pdf}
-    %     \caption{Symbol einer Photodiode \cite{Wiki_Img_PhotodiodeSymbol}}
-    % \end{wrapfigure}
-    % \lipsum[1]
+
+    \section{Grundlegender Aufbau und Funktionsweise}
+    \input{sections/Grundlegender_Aufbau_und_Funkionsweise.tex}
 
     \section{Anwendungsgebiete}
     \input{sections/Anwendungsgebiete.tex}
 
-    \section{Grundlegender Aufbau und Funktionsweise}
-        % TODO
-        \subsection{Aufbau}
-        \subsection{Funktionsweise}
-        \subsection{Effizienz}
-
     \section{Anwendungsbeispiel}
-        % IoT-Sensor 1..2W betrieb durch solarzelle
-        % solar zellentyp, größe, kapazität, dunkelheits überbrückung
-        \subsection{Problemstellung}
-            Gegeben sei eine Wetterstation in einem abgelegenen Teil der Sahara,
-            welche zwischen 1W und 2W verbraucht. Wie kann eine solche Anlagen
-            kostengünstig und relativ wartungsfrei betrieben werden?
-        \subsection{Entwurf}
-        \subsection{Konklusion}
+    \input{sections/Anwendungsbeispiel.tex}
 
     \section{Zusammenfassung}
 
