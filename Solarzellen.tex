@@ -4,16 +4,13 @@
 \usepackage{xcolor}     % colorize text
 \usepackage{graphicx}   % images
 \usepackage{hyperref}   % hyperlinks
-\usepackage{wrapfig}    % wrapped figures
-\usepackage{glossaries} % optional glossary
-\usepackage{lipsum}     % easy lorem ipsum
 \usepackage{float}      % better image positioning
 
 % overrides & setup
-\usepackage[nottoc,numbib]{tocbibind}      % include bibliography in toc
-\usepackage[figurename=Abbildung]{caption} % rename Figure to Abbildung
-\renewcommand{\refname}{Quellen}
-\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\usepackage[nottoc,numbib]{tocbibind}               % include refs in toc
+\usepackage[figurename=Abbildung]{caption}          % rename figures
+\renewcommand{\refname}{Quellen}                    % rename references
+\renewcommand{\contentsname}{Inhaltsverzeichnis}    % rename toc
 \graphicspath{{./images/}}
 \hypersetup{
     colorlinks=true,
@@ -50,9 +47,6 @@
 
     \section{Anwendungsbeispiel}
     \input{sections/Anwendungsbeispiel.tex}
-    \newpage
-
-    \section{Zusammenfassung}
     \newpage
 
     \input{sections/Bibliography.tex}
