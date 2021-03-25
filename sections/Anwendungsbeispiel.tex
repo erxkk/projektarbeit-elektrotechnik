@@ -1,9 +1,56 @@
 % IoT-Sensor 1..2W betrieb durch solarzelle
 % solar zellentyp, größe, kapazität, dunkelheits überbrückung
 \subsection{Problemstellung}
-    Gegeben sei eine Wetterstation in einem abgelegenen Teil der Sahara,
+    Gegeben sei einen Wettersensor in einem abgelegenen Teil der Sahara,
     welche eine Leistungsaufnahme zwischen 1W und 2W besitzt. Wie kann
     eine solche Anlage kostengünstig und relativ wartungsfrei betrieben
     werden?
+    \\\\
+    Die Antowrt ist natürlich die starke Sonnenenergie der Region auszunutzen,
+    eine Solareinrichtung von geringer Größe kann über den Tag genug
+    Sonnenenergie sammeln um sowohl den Wettersensor zu versorgen als auch
+    eine Batterie zur Überbrückung der Nacht auf zu laden.
+    \\\\
+    Um die dauerhafte Reliabilität des Wettersensors zu gewährleisten müssen
+    zu jedem Zeitpunkt also 2W an Leistung zur verfügungstehen.
+\subsection{Theorie}
+    Eine photovaoltaische Zelle wandelt eingehende Leistung \( P_e \) mit
+    einem Wirkungsgrad \( \eta \) in ausgehende Leistung \( P_a \) um, die
+    eingehende Leistung ist eine Funktion von eingehender Bestrahlungsstärke,
+    also Sonnenlesitung pro Bestrahlungsfläche \( E_e = [\frac{P_s}{A_s}] \)
+    auf die Fläche \( A \) der photovltaischen Zelle.
+        \[ f(P_e) = P_a = \eta P_e \]
+    Dabei ist die eingehende Leistung
+        \[ P_e = E_e \cdot A\]
+    woraus folgt dass
+        \[ P_a = \eta \cdot E \cdot A \]
+    Von den gegebenen Größen sind sowohl die Sonnenenergie, da diese vom
+    Standort des Sensors abhängig ist, als auch die ausgehende Lesitung,
+    welche dem maximalen Verbrauch des Sensors entspricht, nicht sonderlich
+    beeinflussbar. Es folgt also das für eine ausreichende Leistungsabgabe
+    der Zelle die Fläche oder der Wirkungsgrad verändert werden müssen.
+    \\\\
+    Der Wirkungsgrad \( \eta \) einer photovoltaischen Zelle wird zur
+    Laborbedingungen getestet, das bedeutet \( T_{STC} = 25 \)°C
+    Umgebungstemperatur, \( 1 \frac{kW}{m^2} \) Bestrahlungsstärke und
+    1.5 spektraler Distibution \cite{Wiki_SolarEfficiency}. In der Sahara
+    beträgt die durschnittliche Temperatur am Tag rund 30°C und die
+    Bestrahlungsstärke rund \( 2 \frac{kW}{m^2} \) bis
+    \( 2.5 \frac{kW}{m^2} \) \cite{Wiki_SolarAfrica}. Der Simplizität halber
+    werden die folgenden Berechnungen \( E_e = 2.25 \frac{kW}{m^2} \), eines
+    Basiswirkungsgrades von \( \eta_{STC} = 0.15 \) und
+    Lesitunstemperaturkoeefizenten \( \gamma = -\frac{0.0043}{K} \) aus dem
+    Beispieldatenblatt eines Solarmoduls berechnet. \cite{SolarDatasheet}
+    \\\\
+    Aus den gegebenen Werten ergibt sich die Temperaturdifferenz
+        \[ \Delta T = T - T_{STC} = 5 \]
+    und der draus resultierende wirkliche Wirkungsgrad bei Betriebstemperatur
+    \( T \)
+        \[ \eta = \eta_{STC} + \gamma \Delta T = 0.1285\]
+    Daraus folgt die benötigte Größe \( A \) der photovoltaischen Zelle in
+    Abhängigkeit von eingehender Sonnenenergie, temperaturangepasstem
+    Wirkungsgrad und benötigter Ausgangsleistung.
+        \[ A = \frac{P_a}{\eta E_e} \approx 0.00691742 m^2 \approx 69.1742 cm^2\]
 \subsection{Entwurf}
+    % TODO
 \subsection{Konklusion}
